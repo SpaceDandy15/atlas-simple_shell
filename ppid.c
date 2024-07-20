@@ -8,7 +8,7 @@
  *@void: no arguments
  *Return:
 **/
-int main (void)
+ppid_t getppid(void)
 {
         ppid_t ppid;/** **/
 

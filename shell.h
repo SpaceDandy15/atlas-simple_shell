@@ -19,5 +19,6 @@ int main (int ac, char **av);
 int main (int ac, char **av, **env);
 char *strtok(char *str, const char *delim);
 pid_t getppid(void);
+ppid_t getppid(void);
 
 #endif
