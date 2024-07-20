@@ -9,10 +9,10 @@
 #include <string.h>
 #include <sys/stat.h>
 
-/**typedef struct{
+struct stat{
 	
 	
-};**/
+};
 
 int main (void);
 int main (int ac, char **av);

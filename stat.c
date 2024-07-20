@@ -10,7 +10,7 @@
  *@env
  *Returns 0 in success, -1 if unsuccessful
 **/
-int main (int ac, char **av, **env)
+int stat(const char *restrict pathname, struct stat *restrict statbuf);
 {
 
 }
