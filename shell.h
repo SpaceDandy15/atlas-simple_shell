@@ -28,9 +28,9 @@ int execve(const char *pathname, char *const _Nullable argv[], char *const _Null
 int isatty(int fd);
 ssize_t getline(char **restrict lineptr, size_t *restrict n, FILE *restrict stream);
 char *_getenv(info_t *, const char *);/**prototypes for envrionment**/
-int _setenv(info_t *);
-int _unsetenv(info_t *);
-int _currentenv(info_t *);
+int _setenv(info_t *info, const char *name, const char *value);
+int _unsetenv(info_t *info, const char *name, const char *value);
+int _currentenv(info_t *info, const char *name, const char *value);
 
 
 #endif
