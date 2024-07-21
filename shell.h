@@ -30,6 +30,7 @@ ssize_t getline(char **restrict lineptr, size_t *restrict n, FILE *restrict stre
 char *_getenv(info_t *, const char *);/**prototypes for envrionment**/
 int _setenv(info_t *);
 int _unsetenv(info_t *);
+int _currentenv(info_t *);
 
 
 #endif
