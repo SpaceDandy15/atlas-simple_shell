@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <sys/wait.h> /**Does not hang if no status is available; return immediately.*/
+#include <sys/types.h> /** defines data types used in system source code*/
 
 struct stat{
 	
