@@ -44,7 +44,8 @@ int execve(const char *pathname, char *const argv[], char *const envp[]);
 /**uses arg for file name and details, and pathname for printing everything**/
 int isatty(int fd);/**returns a file descriptor**/
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);/**uses td to use F op and data**/
-char *_getenv(info_t *, const char *);/**prototypes for envrionment**/
+char *_getenv(info_t *, const char *);//**gcc uses ino_t similar stat uses
+/**comp thinks youre trying to use that, if type add to header**/
 int _setenv(info_t *info, const char *name, const char *value);
 int _unsetenv(info_t *info, const char *name, const char *value);
 int _currentenv(info_t *info, const char *name, const char *value);
