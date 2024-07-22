@@ -46,10 +46,6 @@ int isatty(int fd);/**returns a file descriptor**/
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);/**uses td to use F op and data**/
 char *_getenv(info_t *, const char *);//**gcc uses ino_t similar stat uses
 /**comp thinks youre trying to use that, if type add to header**/
-int _setenv(info_t *info, const char *name, const char *value);
-int _unsetenv(info_t *info, const char *name, const char *value);
-int _currentenv(info_t *info, const char *name, const char *value);
-
 /**functions for path.c**/
 char *_stdrup(const char *s);
 char *trtok(char *str, const char *delim);
@@ -58,6 +54,11 @@ char *pathstr(char *path, char *first);
 int access(const char *pathname, int mode);
 int exec(const char *path, char *const argv[], char *const envp[]);
 void wait(int *status);
+
+/**environment shortend code proto type to handle the simplicity of the project while the
+ * other approach was more dynamic and would handle more precise errors but
+ * would take too much time writing all that code for all the files.**/
+int printenv(char **env, int *ex_st);
 
 /**funciton declartions form exec.c*/
 void _exc(int status, char **args, int *ex_st, int *tal);
