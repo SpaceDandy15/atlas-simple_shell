@@ -4,17 +4,25 @@
 #include <unistd.h>
 #include <string.h>
 /**
- *main - entry point
+ *getppid - gets the parent pid
  *@void: no arguments
- *Return:
+ *Return: parent process id number
 **/
-ppid_t getppid(void)
+pid_t getppid(void)
 {
-        ppid_t ppid;/** **/
+        pid_t fppid;/**declare struct of ppid to use for fork**/
+	pid_t ppid/**declare type for parent pid**/
 
-        ppid getppid();/** **/
+	fppid = fork();/**initialize to fork function**/
+	ppid = getppid();/**init to getppid function**/
+	
+	if (ppid == -1)
+{
+		perror("Error\n");
+		return (1);
+}
 
-        /**print ppid to ensure its working also use echo$$**/
+        printf("PPID: %u\n", getppid());/**print ppid**/
 
-        return ();/** **/
+        return (ppid);/**return parent process identification number**/
 }
