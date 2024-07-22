@@ -50,5 +50,23 @@ int _setenv(info_t *info, const char *name, const char *value);
 int _unsetenv(info_t *info, const char *name, const char *value);
 int _currentenv(info_t *info, const char *name, const char *value);
 
+/**functions for path.c**/
+char *_stdrup(const char *s);
+char *trtok(char *str, const char *delim);
+int _strcmp(const char *a, const char *b);
+char *pathstr(char *path, char *first);
+int access(const char *pathname, int mode);
+int exec(const char *path, char *const argv[], char *const envp[]);
+void wait(int *status);
+
+/**funciton declartions form exec.c*/
+void _exc(int status, char **args, int *ex_st, int *tal);
+
+// custom function declarations
+void print_str(const char *str);
+void print_int(int num);
+void perror_custom(const char *message, const char *filename);
+
+
 
 #endif
