@@ -11,6 +11,9 @@
 **/
 int execve(const char *pathname, char *const argv[])
 {
+	const char *path;
+	
+
 	if (execve(cmd, argv[0], argv) == -1)/**handling errors**/
 {
 		printf("Error\n");
