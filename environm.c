@@ -11,11 +11,11 @@
 **/
 int execve(const char *pathname, char *const argv[])
 {
-	if (execve(cmd, argv[0], argv) == -1)
+	if (execve(cmd, argv[0], argv) == -1)/**handling errors**/
 {
 		printf("Error\n");
 }
-	printf();
+	printf();/**prints if execve funct is successful**/
 	return ();
 /**
  *isatty - checks if program is a terminal
@@ -24,14 +24,14 @@ int execve(const char *pathname, char *const argv[])
 **/
 int isatty(int fd);
 {
-	if (isatty() == 1)
+	if (isatty() == 1)/**checks if terminal**/
 {
-		getline();
-		return ();
+		getline();/**uses getline to get information**/
+		return ();/**returns terminal**/
 }
 		else
 {
-			printf("");
+			printf("");/**is not a terminal**/
 }
 	return ();
 }
