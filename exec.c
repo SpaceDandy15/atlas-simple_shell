@@ -8,18 +8,15 @@
  * @tal: tally of commands or attempted commands that were run
  * Return: void
 */
-void _exec(int status, char **args, int *ex_st, int *tal) /** function that takes 4 parameters
-integer status will indecate the files status, a pointer to character array (Args)
-also a pointer to integer ex_st for storing the exit status,
-lastly i have a pointer to an integer tal for tracking the tally of commands**/
+void _exec(int status, char **args, int *ex_st, int *tal)
 {
-	if (status == 2) /** conditional block that executes if status equals 2. This will indicate that the file exists
+	if (status == 2) /** cond block that exec if status = 2. will indicate that the file exists
 	but may not be executable.*/
 	{
 		if (access(args[0], X_OK) == 0) /** outer if block that checks if the file pointed to by args [0], 
 		access function makes this executable, X_OK tests for the files executability. the inner block executes if true*/
 		{
-			if (fork() ==0) /** forks a new proccess. if fork returns 0, it means we are in the child process. command is excuted here*/
+			if (fork() == 0) /** forks a new proccess. if fork returns 0, it means we are in the child process. command is excuted here*/
 			exec(args[0], args, NULL); /** executes the command located at args [0] with arguments provided in args. argument 3 is set to null*/
 
 			else
