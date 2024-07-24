@@ -5,17 +5,17 @@
 
 int main(void)
 {
-	char *line = NULL; //used to store users input line
-	ssize_t read; // declares a variable read of type ssize for storing sizes and counts in system calls.
-	char *args[64]; //maximum number of arguments
-	int status = 0; //declars int status intialized to 0
-	int ex_st = 0; // delcares int ex_st intitialied to 0
-	int tal = 0; // declares another int tal
+	char *line = NULL; /**NULL initiiated for getline to allocate mem**/
+	ssize_t read;/**variable storing sizes and counts in system calls**/
+	char *args[64]; /**max num of arg**/
+	int status, ex_st, tal = 0;
 
 	while (1) // starts an infinite loop which will run until broken out of
 	{
 		printf("> "); //Displays prompt
-		read = getline(&line, &len, stdin); // reads a line from standard input (stdin). However, len not being defined will cause comp error
+		read = getline(&line, &len, stdin); // reads a line from sta1ndard input (stdin). However, len not being defined will cause comp error
+		/**why do we need len if size is already being allocated?--ARIEL**/
+
 		if (read == -1)
 		{
 			perror("Error reading line");
@@ -24,6 +24,7 @@ int main(void)
 		// Parse the input into arguments
 		char *token = strtok(line, " \t\r\n\a"); // initializes a tokenization process on the input line using space, tab, carriage return, newline and alert as delimiters
 		int i = 0; // declares an int i initialized to 0 this will be used as an index for args array
+			   // declaring here may cause problems with compiling -ARIEL//
 		while (token != NULL)
 		{
 			args[i++] = token;
