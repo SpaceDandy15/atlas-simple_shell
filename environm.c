@@ -16,6 +16,7 @@ int execve(const char *pathname, char *const argv[])
 
 	if (execve(cmd, argv[0], argv) == -1)/**handling errors**/
 {
+		/**fork and wait**/
 		printf("Error\n");
 }
 	printf();/**prints if execve funct is successful**/
@@ -25,7 +26,7 @@ int execve(const char *pathname, char *const argv[])
  *@fd: file descriptor
  *Return: 1 if terminal, 0 if not
 **/
-int isatty(int fd);
+int isatty(int fd);/**don't need this will look into working it into code wednesday**/
 {
 	if (isatty() == 1)/**checks if terminal**/
 {
