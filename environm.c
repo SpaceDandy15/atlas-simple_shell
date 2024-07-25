@@ -23,6 +23,7 @@ int execve(const char *pathname, char *const argv[], char *const env[])
 	fork();
 	isatty();/**will recurse and handle and fork**/
 	printf("");/**prints if execve funct is successful**/
+	return (execve(pathname, argv, env));
 }
 /**
  *isatty - checks if program is a terminal
