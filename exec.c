@@ -10,18 +10,17 @@
 */
 void _exec(int status, char **args, int *ex_st, int *tal)
 {
-	if (status == 2) /** cond block that exec if status = 2. will indicate that the file exists
-	but may not be executable.*/
+	if (status == 2) /** will indicate that the file exists but may not be executable.*/
 	{
 		if (access(args[0], X_OK) == 0) /** outer if block that checks if the file pointed to by args [0], 
-		access function makes this executable, X_OK tests for the files executability. the inner block executes if true*/
+		access function makes this executable, X_OK tests for the files executability.*/
 		{
-			if (fork() == 0) /** forks a new proccess. if fork returns 0, it means we are in the child process. command is excuted here*/
-			exec(args[0], args, NULL); /** executes the command located at args [0] with arguments provided in args. argument 3 is set to null*/
+			if (fork() == 0) /** if fork returns 0, it means we are in the child process. command is executed here*/
+			exec(args[0], args, NULL); /** executes the command located at args [0] with arguments*/
 
 			else
-			wait(NULL); /** forked process is not child (its the parent), this waits for the child process to finish executing*/
-			*ex_st = 0; /**sets the exit status to 0, indicating successful execution*/
+			wait(NULL); /**(the parent waits for the child process to finish executing*/
+			*ex_st = 0; /** successful execution*/
 		}
 		else if (access(args[0], F_OK) != 0) /** if the file does not exits (F_OK test fails), this block executes. F_OK checks for the existence of the file.*/
 		{
@@ -30,11 +29,10 @@ void _exec(int status, char **args, int *ex_st, int *tal)
 			print_str(": ");
 			perror(args[0]);
 			*ex_st = 127;
-		} /** prints an error message indicating the file was not found, including the tally and the name of the command
-		the ex_st 127 is the exit status and indicates a command not found error.*/
+		} /** prints an error message indicating the file was not found, the ex_st 127 is the exit status.*/
 		else if (access(args [0], F_OK) == 0 &&
-		access(args[0], X_OK) != 0) /** if the file exists but is not executable, this block executes. It will combine checks for
-		file existence (F_OK) and non-executablitly (X_0K)*/
+		access(args[0], X_OK) != 0) /** if the file exists but is not executable, this block executes. 
+		It will combine checks for file existence (F_OK) and non-executablitly (X_0K)*/
 		{
 			print_str("sh: ");
 			print_int(tal);
