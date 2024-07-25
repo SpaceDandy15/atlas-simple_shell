@@ -15,7 +15,7 @@
 int main (void);/**basic entry point, unsure if we'll need it**/
 pid_t wait(int *wstatus);/**not sure yet for wait func, here for options**/
 pid_t waitpid(pid_t pid, int *wstatus, int options);/**same as above**/
-int execve(const char *pathname, char *const argv[], char *const envp[]);
+int exec(const char *pathname, char *const argv[], char *const envp[]);
 /**uses arg for file name and details, and pathname for printing everything**/
 int isatty(int fd);/**returns a file descriptor**/
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);/**uses td to use F op and data**/
@@ -26,15 +26,10 @@ char *_stdrup(const char *s);
 char *trtok(char *str, const char *delim);
 int _strcmp(const char *a, const char *b);
 char *pathstr(char *path, char *first);
-int exec(const char *path, char *const argv[], char *const envp[]);
 void wait(int *status);
 
-/**environment shortend code proto type to handle the simplicity of the project while the
- * other approach was more dynamic and would handle more precise errors but
- * would take too much time writing all that code for all the files.**/
-
-/**funciton declartions form exec.c*/
-void _exc(int status, char **args, int *ex_st, int *tal);
+/**funciton declartions from exec.c*/
+void _exec(int status, char **args, int *ex_st, int *tal);
 
 // custom function declarations
 void print_str(const char *str);
