@@ -1,8 +1,6 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
-#define BUFFER
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -19,9 +17,7 @@ int exec(const char *pathname, char *const argv[], char *const envp[]);
 /**uses arg for file name and details, and pathname for printing everything**/
 int isatty(int fd);/**returns a file descriptor**/
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);/**uses td to use F op and data**/
-char *_getenv(info_t *, const char *);//**gcc uses ino_t similar stat uses
-/**comp thinks youre trying to use that, if type add to header**/
-/**functions for path.c**/
+char *_getenv(ino_t *, const char *);
 char *_stdrup(const char *s);
 char *trtok(char *str, const char *delim);
 int _strcmp(const char *a, const char *b);
