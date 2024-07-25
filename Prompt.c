@@ -32,7 +32,7 @@ int main(void)
 		}
 		args[i] = NULL; //Null terminate the arguments array
 
-		// Execute the commmand
+		// Execute the commmand (look at this later)
 		_exec(status, args, &ex_st, &tal);
 
 		// cleanup
