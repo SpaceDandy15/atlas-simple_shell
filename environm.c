@@ -43,5 +43,5 @@ int isatty(int fd);/**don't need this will look into working it into code wednes
 {
 		printf("Failed to acquire terminal, Major!\n");/**is not a terminal**/
 }
-	return (0);
+	return (isatty(fd));
 }
