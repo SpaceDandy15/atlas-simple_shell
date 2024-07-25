@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _execute - function that executes in the main shell
+ * _exec - function that executes in the main shell
  * @status: the status of the path, whether the file found is executable or not
  * @args: the parsed arguments
  * @ext_st: the exit status

@@ -32,7 +32,4 @@ void print_str(const char *str);
 void print_int(int num);
 void perror_custom(const char *message, const char *filename);
 
-/**
- * I am thinking we dont need these functions**/
-
 #endif

@@ -2,18 +2,13 @@
 
 /**
  * _path - function that prints environment PATH
- * @env: environment
- * @first: the first tokenized keyword (user inputted argument)
- * @input: the tokenized arguemnets
- * @ex_st: the exit status
- * Return: 0 if successful
-*/
-int _path(char *first, char **input, char **env, int *ex_st) /** this function takes four parameters
-char *first: a pointer to the first tokenized keyword (user inputted argument).
-char **input: a pointer to an array of tokenzied arguments
-char **env: a pointer to an array representing the environment variables
-int *ex_st: a pointer to an integer variable used to store the exit status.**/
-{ /** variable declarations*/
+ *@env: environment
+ *@first: the first tokenized keyword (user inputted argument)
+ *@input: the tokenized arguemnets
+ *@ex_st: the exit status
+ *Return: 0 if successful
+**/
+int _path(char *first, char **input, char **env, int *ex_st)
 	int i; /** integer used as loop counter*/
 	char *temp, *left, *right; /** pointer used for string manipulation*/
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
