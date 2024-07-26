@@ -14,6 +14,9 @@ int execve(const char *pathname, char *const argv[], char *const env[])
 	const char *path = "/bin/sh";
 	char *const argv[] = {"/bin/sh", NULL};
 	char *const env[] = {NULL};
+	pid_t pid;
+
+	pid = fork();
 
 	if (execve(cmd, argv[0], argv) == -1)/**handling errors**/
 {
@@ -21,7 +24,12 @@ int execve(const char *pathname, char *const argv[], char *const env[])
 		return (-1);/**returns error**/
 }
 	fork();
-	isatty();/**will recurse and handle and fork**/
+	if (pid == )
+{
+		wait();
+		getpid();
+}
+	isatty(int fd);/**will recurse and handle and fork**/
 	printf("");/**prints if execve funct is successful**/
 	return (execve(pathname, argv, env));
 }
