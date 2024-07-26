@@ -12,15 +12,15 @@ pid_t getpid(void)
 
     if (pid)
     {
-        perror("");
+        perror("Error");
     }
     if (pid == 0)
     {
         wait(pid);
-        printf("", pid);
+        printf("Tachikoma", pid);
     }
     
     wait(pid);
-    printf("", pid);
+    printf("Major", pid);
     return (pid);
 }
