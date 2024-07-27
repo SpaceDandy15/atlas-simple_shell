@@ -22,12 +22,12 @@ char *_stdrup(const char *s);
 char *trtok(char *str, const char *delim);
 int _strcmp(const char *a, const char *b);
 char *pathstr(char *path, char *first);
-void wait(int *status);
+void wait(int *status); 
 
 /**funciton declartions from exec.c*/
 void _exec(int status, char **args, int *ex_st, int *tal);
 
-// custom function declarations
+/**custom function declarations*/
 void print_str(const char *str);
 void print_int(int num);
 void perror_custom(const char *message, const char *filename);
