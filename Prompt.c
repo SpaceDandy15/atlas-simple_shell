@@ -18,7 +18,7 @@ int main(void)
 		if (read == -1)
 		{
 			perror("Error reading line");
-			break; // checks if the get line call failed, prints an error message and breaks out of loop.
+			break; /** checks if the get line call failed, prints an error message and breaks out of loop.*/
 		}
 		/** Parse the input into arguments*/
 		char *token = strtok(line, " \t\r\n\a"); /** initializes a tokenization process on the input line using space, tab, carriage return, newline and alert as delimiters*/
