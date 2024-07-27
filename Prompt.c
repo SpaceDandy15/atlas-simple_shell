@@ -9,11 +9,12 @@ int main(void)
 	ssize_t read;/**variable storing sizes and counts in system calls**/
 	char *args[64]; /**max num of arg**/
 	int status, ex_st, tal = 0;
+	size_t len = 0; /** declare and intializes len for geltin*/
 
 	while (1) /** starts an infinite loop which will run until broken out of*/
 	{
 		printf("Ghost> "); /** Displays prompt*/
-		read = getline(&line, stdin); /** reads a line from sta1ndard input (stdin). However, len not being defined will cause comp error*/
+		read = getline(&line, &len, stdin); /** reads a line from sta1ndard input (stdin). However, len not being defined will cause comp error*/
 
 		if (read == -1)
 		{
@@ -21,9 +22,8 @@ int main(void)
 			break; /** checks if the get line call failed, prints an error message and breaks out of loop.*/
 		}
 		/** Parse the input into arguments*/
-		char *token = strtok(line, " \t\r\n\a"); /** initializes a tokenization process on the input line using space, tab, carriage return, newline and alert as delimiters*/
-		int i = 0; /** declares an int i initialized to 0 this will be used as an index for args array*/
-			   /**declaring here may cause problems with compiling -ARIEL*/
+		char *token = strtok(line, " \t\r\n\a");
+		int i = 0; /** declares an int i initialized to 0 this will be used as an index for args array*//**declaring here may cause problems with compiling -ARIEL*/
 		while (token != NULL)
 		{
 			args[i++] = token;
@@ -36,11 +36,10 @@ int main(void)
 
 		/**cleanup*/
 		free(line); /**frees the memory allocated to line by getline*/
-		for (i = 0; args [i]; i++) 
+		for (i = 0; args[i]; i++) 
 		{
 			free(args[i]); /** frees each argument stored in the args array.*/
 		}
-		free (args); /** frees the args array itself.*/
 	}
 	return 0;
 }
