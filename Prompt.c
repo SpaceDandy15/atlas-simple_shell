@@ -13,7 +13,7 @@ int main(void)
 	while (1) /** starts an infinite loop which will run until broken out of*/
 	{
 		printf("Ghost> "); /** Displays prompt*/
-		read = getline(&line, &len, stdin); /** reads a line from sta1ndard input (stdin). However, len not being defined will cause comp error*/
+		read = getline(&line, stdin); /** reads a line from sta1ndard input (stdin). However, len not being defined will cause comp error*/
 
 		if (read == -1)
 		{
