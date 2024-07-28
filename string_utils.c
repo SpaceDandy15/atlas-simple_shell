@@ -10,6 +10,9 @@ char *_strdup(const char *s) {
 char *trtok(char *str, const char *delim) {
     static char *buffer = NULL;
 
+    char *token;
+    char *new_token;
+
     if (str) {
         buffer = str;
     }
@@ -18,12 +21,12 @@ char *trtok(char *str, const char *delim) {
         return NULL;
     }
 
-    char *token = buffer;
+    token = buffer;
     while (*buffer && !strchr(delim, *buffer)) {
         ++buffer;
     }
 
-    char *new_token = malloc(strlen(token) + 1);
+    new_token = malloc(strlen(token) + 1);
     strcpy(new_token, token);
 
     while (*buffer && !strchr(delim, *buffer)) {
@@ -31,9 +34,8 @@ char *trtok(char *str, const char *delim) {
     }
 
     *buffer = '\0';
-
     buffer += strlen(token) + 1;
-    
+
     return new_token;
 }
 
@@ -41,7 +43,7 @@ int _strcmp(const char *a, const char *b) {
     return strcmp(a, b);
 }
 
-char *pathstr(char *path) { /** Adjusted to remove unused parameter 'first'*/
+char *pathstr(char *path) {
     char *result = malloc(strlen(path) + 1);
     strcpy(result, path);
     return result;

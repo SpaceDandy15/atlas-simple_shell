@@ -30,7 +30,7 @@ int _path(char *first, char **input, char **env, int *ex_st)
 			right = strtok(temp, ": \t");
 			while (right)
 			{
-				new = pathstr(right, first);
+				new = pathstr(right);
 
 				if (access(new, X_OK) == 0)
 				{
