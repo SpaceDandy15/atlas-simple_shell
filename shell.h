@@ -25,7 +25,7 @@ int prompt(void); /**prompt declaration*/
 char *_strdup(const char *s); /** declaration for path.c*/
 /**funciton declartions from exec.c*/
 void _my_exec(int status, char **args, int *ex_st, int *tal);
-
+void _custom_exec(const char *command, char *const args[], int *exit_status);
 /**custom function declarations*/
 void print_str(const char *str);
 void print_int(int num);
