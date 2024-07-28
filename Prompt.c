@@ -40,9 +40,10 @@ int prompt(void)
 
 		/**cleanup*/
 		if (!line_freed) /**chekc if line has not been freed before*/
-		free(line); /**frees the memory allocated to line by getline*/
+		{ free(line); /**frees the memory allocated to line by getline*/
 		line = NULL; /**reset line to Null - Ariel*/
 		line_freed = 1; /** mark line as freed*/
+		}
 		for (i = 0; args[i]; i++) 
 		{
 			free(args[i]); /** frees each argument stored in the args array.*/
