@@ -1,5 +1,6 @@
 #include "shell.h"
 #include <unistd.h>
+#include <stdio.h>
 /**
  * _path - function that prints environment PATH
  *@env: environment
