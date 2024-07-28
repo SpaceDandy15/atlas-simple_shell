@@ -41,7 +41,7 @@ int _strcmp(const char *a, const char *b) {
     return strcmp(a, b);
 }
 
-char *pathstr(char *path) { // Adjusted to remove unused parameter 'first'
+char *pathstr(char *path) { /** Adjusted to remove unused parameter 'first'*/
     char *result = malloc(strlen(path) + 1);
     strcpy(result, path);
     return result;

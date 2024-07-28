@@ -19,7 +19,7 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream);/**uses td to use F op 
 char *_getenv(ino_t *, const char *);
 char *trtok(char *str, const char *delim);
 int _strcmp(const char *a, const char *b);
-char *pathstr(char *path, char *first);
+char *pathstr(char *path;
 void waiting(int *status); /**changing this to waiting. Having it be wait conflicts with standard library functions*/
 int prompt(void); /**prompt declaration*/
 char *_strdup(const char *s); /** declaration for path.c*/
