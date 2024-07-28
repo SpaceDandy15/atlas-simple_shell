@@ -10,12 +10,14 @@
 */
 void _exec(int status, char **args, int *ex_st, int *tal)
 {
+	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
+
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
 	{
 		if (access(args[0], X_OK) == 0) /** outer if block that checks if the file pointed to by args [0], 
 		access function makes this executable, X_OK tests for the files executability.*/
 		{
-			if (fork() == 0) /** if fork returns 0, it means we are in the child process. command is executed here*/
+			if (pid == 0) /** if fork returns 0, it means we are in the child process. command is executed here*/
 			exec(args[0], args, NULL); /** executes the command located at args [0] with arguments*/
 
 			else
