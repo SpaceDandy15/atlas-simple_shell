@@ -9,6 +9,8 @@ int main(void)
 	ssize_t read;/**variable storing sizes and counts in system calls**/
 	char *args[64]; /**max num of arg**/
 	int status = -1; /** initializes status to indicate an error initially*/
+	int ex_st = 0; /**Initialize ex_st to 0, assuming it holds an exit status*/
+	int tal = 0; /**Initialize tal to 0, assuming it tracks some count or flag*/
 	size_t len = 0; /** declare and intializes len for geltin*/
 
 	char *token; /** moved declarations outside of loop*/
