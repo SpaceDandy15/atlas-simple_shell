@@ -9,9 +9,11 @@
  *Return: 0 if successful
 **/
 int _path(char *first, char **input, char **env, int *ex_st)
+{
 	int i; /** integer used as loop counter*/
 	char *temp, *left, *right; /** pointer used for string manipulation*/
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
+	pid_t pid = fork();
 
 	for (i = 0; env[i] != '\0'; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
 	indicates the end of the environment variables array.*/
@@ -21,7 +23,7 @@ int _path(char *first, char **input, char **env, int *ex_st)
 		temp = trtok(NULL, "=\t"); /** environment is duplicated using _stdup, the split into tokens based on spaces,
 		equals signs, and tabs. First token is stored in left and second token is in temp*/
 
-		if (_strcmp(left, "PATH")== 0) /** checks if left token matches the string "PATH", if it does it will proceed to tokenized temp again, this time splitting
+		if (_strcmp(left, "PATH") == 0) /** checks if left token matches the string "PATH", if it does it will proceed to tokenized temp again, this time splitting
 		on colons, spaces, and tabs to get individual paths.*/
 		{
 			right = strtok(temp, ": \t");
@@ -31,12 +33,18 @@ int _path(char *first, char **input, char **env, int *ex_st)
 
 				if (access(new, X_OK) == 0)
 				{
-					if (fork() == 0)
+					if (pid == 0)
 					exec(new,input, NULL);
 
-					else
+					else if (pid > 0)
+					{
 					wait (NULL);
 					*ex_st = 0;
+					}
+					else
+					{
+						perror("fork");
+					}
 					free(new);
 					free(envcopy);
 					return (0);

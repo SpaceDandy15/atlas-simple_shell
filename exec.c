@@ -43,5 +43,5 @@ void _exec(int status, char **args, int *ex_st, int *tal)
 			*ex_st = 126;
 		} /** sets the exit status to  126 which is a permission issue.*/
 	}
-	free(args);
+	free(args);/** will see if double -Ariel*/
 }
