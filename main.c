@@ -1,22 +1,17 @@
 #include "shell.h"
-#include "Prompt.c"
+#include <unistd.h>
 /**maybe recurse everything in here**/
 int main(void)
 {
-	if (isatty(fd) == 1)/**checks if terminal**/
-{
-		printf("Terminal acquired, Major.\n");/**GiTS reference**/
-		return (1);/**returns terminal**/
-}
-	else
-{
-		printf("Failed to acquire terminal, Major!\n");/**is not a terminal**/
-}
-	return (0);
-
+	if (isatty(STDIN_FILENO))/**checks if terminal**/
 	{
-		prompt();
-	}
-
-	return 0;
+	printf("Terminal acquired, Major.\n");/**GiTS reference**/
+	return 1;/**returns terminal**/
+}
+else
+{
+	printf("failed to acquire terminal, Major!\n");
+}
+prompt(); /** calls after checking for a terminal*/
+return 0;
 }
