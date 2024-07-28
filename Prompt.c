@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include "shell.h"
 
-int main(void)
 {
 	char *line = NULL; /**NULL initiiated for getline to allocate mem**/
 	ssize_t read;/**variable storing sizes and counts in system calls**/
