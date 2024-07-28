@@ -11,6 +11,8 @@ int main(void)
 	int status, ex_st, tal = 0;
 	size_t len = 0; /** declare and intializes len for geltin*/
 
+	char *token; /** moved declarations outside of loop*/
+	int i = 0;
 	while (1) /** starts an infinite loop which will run until broken out of*/
 	{
 		printf("Ghost> "); /** Displays prompt*/
@@ -22,8 +24,7 @@ int main(void)
 			break; /** checks if the get line call failed, prints an error message and breaks out of loop.*/
 		}
 		/** Parse the input into arguments*/
-		char *token = strtok(line, " \t\r\n\a");
-		int i = 0; /** declares an int i initialized to 0 this will be used as an index for args array*//**declaring here may cause problems with compiling -ARIEL*/
+		token = strtok(line, " \t\r\n\a");
 		while (token != NULL)
 		{
 			args[i++] = token;
