@@ -3,53 +3,46 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-char *_strdup(const char *s)
-{
-	return strdup(s); 
+char *_strdup(const char *s) {
+    return strdup(s);
 }
-char *trtok(char *str, const char *delim)
-{
-	static char *buffer = NULL;
 
-	if (str)
-	{
-		buffer = str;
-	}
+char *trtok(char *str, const char *delim) {
+    static char *buffer = NULL;
 
-	if (!buffer)
-	{
-		return NULL;
-	}
+    if (str) {
+        buffer = str;
+    }
 
-	char *token = buffer;
-	while (*buffer && !strchr(delim, *buffer))
-	{
-		++buffer;
-	}
+    if (!buffer) {
+        return NULL;
+    }
 
-	char *new_token = malloc(strlen(token) + 1);
-	strcpy(new_token, token);
+    char *token;
+    while (*buffer && !strchr(delim, *buffer)) {
+        ++buffer;
+    }
 
-	while (*buffer && !strchr(delim, *buffer))
-	{
-		++buffer;
-	}
+    char *new_token = malloc(strlen(token) + 1);
+    strcpy(new_token, token);
 
-	*buffer = '\0';
+    while (*buffer && !strchr(delim, *buffer)) {
+        ++buffer;
+    }
 
-	buffer += strlen(token) + 1;
-	
-	return new_token;
-	
-	int _strcmp(const char *a, const char *b)
-	{
-		return strcmp(a, b);
-	}
+    *buffer = '\0';
 
-	char *pathstr(char *path, char *first)
-	{
-		char *result = malloc(strlen(path) +1);
-		strcpy(result, path);
-		return result;
-	}
+    buffer += strlen(token) + 1;
+    
+    return new_token;
+}
+
+int _strcmp(const char *a, const char *b) {
+    return strcmp(a, b);
+}
+
+char *pathstr(char *path, char *first) { /**Uncomment or modify 'first' usage*/
+    char *result = malloc(strlen(path) + 1);
+    strcpy(result, path);
+    return result;
 }
