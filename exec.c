@@ -1,4 +1,6 @@
 #include "shell.h"
+#include <unistd.h>
+#include <sys/types.h>
 
 /**
  * _exec - function that executes in the main shell
