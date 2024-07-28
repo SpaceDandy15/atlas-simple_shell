@@ -15,7 +15,7 @@ int prompt(void)
 
 	char *token; /** moved declarations outside of loop*/
 	int i = 0;
-	bool line_freed = false; /**flag to track if line has been freed*/
+	int line_freed = 0; /**int to track if line has been freed*/
 	while (1) /** starts an infinite loop which will run until broken out of*/
 	{
 		printf("Ghost> "); /** Displays prompt*/
@@ -42,7 +42,7 @@ int prompt(void)
 		if (!line_freed) /**chekc if line has not been freed before*/
 		free(line); /**frees the memory allocated to line by getline*/
 		line = NULL; /**reset line to Null - Ariel*/
-		line_freed = true; /** mark line as freed*/
+		line_freed = 1; /** mark line as freed*/
 		for (i = 0; args[i]; i++) 
 		{
 			free(args[i]); /** frees each argument stored in the args array.*/
