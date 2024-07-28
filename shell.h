@@ -17,7 +17,6 @@ int exec(const char *pathname, char *const argv[], char *const envp[]);
 int isatty(int fd);/**returns a file descriptor**/
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);/**uses td to use F op and data**/
 char *_getenv(ino_t *, const char *);
-char *_stdrup(const char *s);
 char *trtok(char *str, const char *delim);
 int _strcmp(const char *a, const char *b);
 char *pathstr(char *path, char *first);
