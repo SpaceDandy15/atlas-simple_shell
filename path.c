@@ -1,5 +1,5 @@
 #include "shell.h"
-
+#include <unistd.h>
 /**
  * _path - function that prints environment PATH
  *@env: environment
@@ -15,7 +15,7 @@ int _path(char *first, char **input, char **env, int *ex_st)
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
 	pid_t pid = fork();
 
-	for (i = 0; env[i] != '\0'; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
+	for (i = 0; env[i] != NULL; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
 	indicates the end of the environment variables array.*/
 	{
 		envcopy = _strdup(env[i]);
