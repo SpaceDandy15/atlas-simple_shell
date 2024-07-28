@@ -8,6 +8,7 @@ int main(void)
 	char *line = NULL; /**NULL initiiated for getline to allocate mem**/
 	ssize_t read;/**variable storing sizes and counts in system calls**/
 	char *args[64]; /**max num of arg**/
+	int status = -1; /** initializes status to indicate an error initially*/
 	int status, ex_st, tal = 0;
 	size_t len = 0; /** declare and intializes len for geltin*/
 
