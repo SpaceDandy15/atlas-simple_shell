@@ -23,6 +23,7 @@ int _strcmp(const char *a, const char *b);
 char *pathstr(char *path, char *first);
 void waiting(int *status); /**changing this to waiting. Having it be wait conflicts with standard library functions*/
 int prompt(void); /**prompt declaration*/
+char *_strdup(const char *s); /** declaration for path.c*/
 /**funciton declartions from exec.c*/
 void _exec(int status, char **args, int *ex_st, int *tal);
 
