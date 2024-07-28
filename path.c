@@ -36,7 +36,7 @@ int _path(char **input, char **env, int *ex_st)
 				if (access(new, X_OK) == 0)
 				{
 					if (pid == 0)
-					exec(new,input, NULL);
+					_custom_exec(new,input, NULL);
 
 					else if (pid > 0)
 					{

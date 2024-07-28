@@ -20,7 +20,7 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
 		access function makes this executable, X_OK tests for the files executability.*/
 		{
 			if (pid == 0) /** if fork returns 0, it means we are in the child process. command is executed here*/
-			exec(args[0], args, NULL); /** executes the command located at args [0] with arguments*/
+			_custom_exec(args[0], args, NULL); /** executes the command located at args [0] with arguments*/
 
 			else
 			wait(NULL); /**(the parent waits for the child process to finish executing*/
