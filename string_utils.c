@@ -7,7 +7,7 @@ char *_strdup(const char *s)
 {
 	return strdup(s); 
 }
-char *trtok(char *str, cosnt char *delim)
+char *trtok(char *str, const char *delim)
 {
 	static char *buffer = NULL;
 
