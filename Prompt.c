@@ -39,7 +39,7 @@ int prompt(void)
 
 		/**cleanup*/
 		free(line); /**frees the memory allocated to line by getline*/
-		/**line = NULL; reset line to Null - Ariel*/
+		line = NULL; /**reset line to Null - Ariel*/
 		for (i = 0; args[i]; i++) 
 		{
 			free(args[i]); /** frees each argument stored in the args array.*/
