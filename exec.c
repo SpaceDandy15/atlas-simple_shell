@@ -27,7 +27,7 @@ void _exec(int status, char **args, int *ex_st, int *tal)
 		else if (access(args[0], F_OK) != 0) /** if the file does not exits (F_OK test fails), this block executes. F_OK checks for the existence of the file.*/
 		{
 			print_str("sh: ");
-			print_int(tal);
+			print_int(*tal); /** pass the dereferencec value of tal to print_int*/
 			print_str(": ");
 			perror(args[0]);
 			*ex_st = 127;
@@ -37,7 +37,7 @@ void _exec(int status, char **args, int *ex_st, int *tal)
 		It will combine checks for file existence (F_OK) and non-executablitly (X_0K)*/
 		{
 			print_str("sh: ");
-			print_int(tal);
+			print_int(*tal);
 			print_str(": ");
 			perror(args[0]);
 			*ex_st = 126;
