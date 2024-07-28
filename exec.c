@@ -8,7 +8,7 @@
  * @tal: tally of commands or attempted commands that were run
  * Return: void
 */
-void _exec(int status, char **args, int *ex_st, int *tal)
+void _my_exec(int status, char **args, int *ex_st, int *tal)
 {
 	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
 

@@ -25,7 +25,7 @@ void waiting(int *status); /**changing this to waiting. Having it be wait confli
 int prompt(void); /**prompt declaration*/
 char *_strdup(const char *s); /** declaration for path.c*/
 /**funciton declartions from exec.c*/
-void _exec(int status, char **args, int *ex_st, int *tal);
+void _my_exec(int status, char **args, int *ex_st, int *tal);
 
 /**custom function declarations*/
 void print_str(const char *str);
