@@ -18,7 +18,7 @@ char *trtok(char *str, const char *delim) {
         return NULL;
     }
 
-    char *token;
+    char *token = buffer;
     while (*buffer && !strchr(delim, *buffer)) {
         ++buffer;
     }
@@ -41,7 +41,7 @@ int _strcmp(const char *a, const char *b) {
     return strcmp(a, b);
 }
 
-char *pathstr(char *path, char *first) { /**Uncomment or modify 'first' usage*/
+char *pathstr(char *path) { // Adjusted to remove unused parameter 'first'
     char *result = malloc(strlen(path) + 1);
     strcpy(result, path);
     return result;
