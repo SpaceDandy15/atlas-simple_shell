@@ -29,6 +29,9 @@ void _my_exec(int status, char **args, int *ex_st, int *tal);
 
 /**custom function declarations*/
 void print_str(const char *str);
+{
+	printf("%s", str);
+}
 void print_int(int num);
 void perror_custom(const char *message, const char *filename);
 
