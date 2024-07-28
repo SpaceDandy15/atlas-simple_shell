@@ -9,7 +9,7 @@
  *@ex_st: the exit status
  *Return: 0 if successful
 **/
-int _path(char *first, char **input, char **env, int *ex_st)
+int _path(char **input, char **env, int *ex_st)
 {
 	int i; /** integer used as loop counter*/
 	char *temp, *left, *right; /** pointer used for string manipulation*/
