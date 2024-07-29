@@ -22,7 +22,7 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
         exit(EXIT_FAILURE);
     }
     return (0);
-}**/end of code that is needed for path and env - Ariel**/
+} /**end of code that is needed for path and env - Ariel**/
 
 	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
 
