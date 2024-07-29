@@ -1,1 +1,41 @@
-example
+.SHNAME
+simple_shell - A simple shell program
+
+.SSH
+This is a simple shell program designed to demonstrate basic shell functionalities such as parsing input, executing commands, and handling errors. It includes a prompt function for displaying a prompt to the user and reading input lines from the terminal.
+
+.SECTION
+NAME
+simple_shell - A simple shell program
+
+SYNOPSIS
+simple_shell
+
+DESCRIPTION
+simple_shell is a minimal shell program that provides a basic interface for executing commands entered by the user. It demonstrates several core concepts of shell programming, including:
+
+- Parsing input into commands and arguments.
+- Executing commands using fork() and exec().
+- Handling errors and displaying informative messages to the user.
+
+The program uses a combination of standard C library functions and custom utility functions to achieve its functionality.
+
+.SECTION
+OPTIONS
+None
+
+.SECTION
+FILES
+- simple_shell.c - The main C source file for the shell program.
+- shell.h - Header file containing function prototypes and definitions used by the shell.
+- string_utils.c - Utility functions for string manipulation.
+- print.c - Functions for printing output to the console.
+- path.c - Functionality for searching and executing commands from the PATH environment variable.
+- main.c - Entry point for the shell program.
+- exec.c - Execution logic for running commands.
+- prompt.c - Contains the prompt function for displaying a prompt and reading input lines.
+
+.SECTION
+AUTHORS
+ARIEL LOPEZ
+MALIK VANCE
