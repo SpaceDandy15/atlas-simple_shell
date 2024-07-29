@@ -13,23 +13,6 @@
 */
 void _my_exec(int status, char **args, int *ex_st, int *tal)
 {
-<<<<<<< HEAD
-	pid_t pid;/**initiate pid at beginning - Ariel**/
-	pid = fork();
-=======
-	    char *argv[] = {"/bin/ls", "-l", NULL};/**needs this somewhere - Ariel */
-    char *envp[] = {NULL};
-
-    if (execve("/bin/ls", argv, envp) == -1)
-    {
-        perror("execve failed");
-        exit(EXIT_FAILURE);
-    }
-/**end of code that is needed for path and env possibly having the return statment was causing an error - Ariel**/
-
-	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
->>>>>>> refs/remotes/origin/main
-
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
 	{
 		if (access(args[0], X_OK) == 0) /** outer if block that checks if the file pointed to by args [0], 
