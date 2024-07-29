@@ -21,8 +21,7 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
         perror("execve failed");
         exit(EXIT_FAILURE);
     }
-
-} /**end of code that is needed for path and env possibly having the return statment was causing an error - Ariel**/
+/**end of code that is needed for path and env possibly having the return statment was causing an error - Ariel**/
 
 	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
 
