@@ -13,18 +13,8 @@
 */
 void _my_exec(int status, char **args, int *ex_st, int *tal)
 {
-	    char *argv[] = {"/bin/ls", "-l", NULL};/**needs this somewhere - Ariel */
-    char *envp[] = {NULL};
-
-    if (execve("/bin/ls", argv, envp) == -1)
-    {
-        perror("execve failed");
-        exit(EXIT_FAILURE);
-    }
-    return (0);
-}**/end of code that is needed for path and env - Ariel**/
-
-	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
+	pid_t pid;/**initiate pid at beginning - Ariel**/
+	pid = fork();
 
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
 	{
@@ -41,7 +31,7 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
 				*ex_st = 0; /** successful execution*/
 			}
 		}
-		else if (access(args[0], F_OK) != 0) /** if the file does not exits (F_OK test fails), this block executes. F_OK checks for the existence of the file.*/
+		else if (access(args[0], F_OK) != 0) /** if the file exists */
 		{
 			print_str("sh: ");
 			print_int(*tal); /** pass the dereferencec value of tal to print_int*/
@@ -49,8 +39,7 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
 			perror(args[0]);
 			*ex_st = 127;
 		} /** prints an error message indicating the file was not found, the ex_st 127 is the exit status.*/
-		else if (access(args [0], F_OK) == 0 && access(args[0], X_OK) != 0) /** if the file exists but is not executable, this block executes. 
-		It will combine checks for file existence (F_OK) and non-executablitly (X_0K)*/
+		else if (access(args [0], F_OK) == 0 && access(args[0], X_OK) != 0) /** if the file exists but is not executable**/
 		
 		{
 			print_str("sh: ");
@@ -72,6 +61,7 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
 
 void _custom_exec(const char *command, char *const args[], int *exit_status)
 {
+
 	pid_t pid = fork();
 	if (pid == 0) /** child proccess*/
 	{
