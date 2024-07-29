@@ -13,6 +13,17 @@
 */
 void _my_exec(int status, char **args, int *ex_st, int *tal)
 {
+	    char *argv[] = {"/bin/ls", "-l", NULL};/**needs this somewhere - Ariel */
+    char *envp[] = {NULL};
+
+    if (execve("/bin/ls", argv, envp) == -1)
+    {
+        perror("execve failed");
+        exit(EXIT_FAILURE);
+    }
+    return (0);
+}**/end of code that is needed for path and env - Ariel**/
+
 	pid_t pid = fork();/**initiate pid at beginning - Ariel**/
 
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
