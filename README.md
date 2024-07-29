@@ -1,26 +1,26 @@
 # $\color{Mulberry}{SIMPLE\ SHELL\ }$ 	
 	
-## $\color{Mulberry}{Features\}$
+## $\color{Mulberry}{Features\ }$
 	
 
 	
-## Motivation
+## $\color{Mulberry}{Motivation\ }$
 	
 
 	
-## Code Language
+## $\color{Mulberry}{Code\ Language\ }$
 	
 Language C for the functions and ROFF for the man page.
 	
-## Framework
+## $\color{Mulberry}{Framework\ }$
 	
 Works in Windows 11 Ubuntu 22.04, MAC, and Linux.
 	
-## Code Example
+## $\color{Mulberry}{Code\ Example\ }$
 	
 	
 	
-## Installation
+## $\color{Mulberry}{Installation\ }$
 	
 Compile it using gcc std=gnu89
 
@@ -36,23 +36,23 @@ Compile it using gcc std=gnu89
 	
 3
 	
-## Tests
+## $\color{Mulberry}{Tests\ }$
 	
 All tests done in Visual Studios. Compiled differently in VS and had to recompose code to compile with std=gnu89.
 	
-## How To Use
+## $\color{Mulberry}{How\ To\ Use\ }$
 
 
 
-## Contribute
+## $\color{Mulberry}{Contribute\ }$
 
 @Simple atlas-simple_shell
 @NecroKnightMare atlas-simple_shell
 
-## Credits
+## $\color{Mulberry}{Credits\ }$
 
 Atlas School (Holberton) has created this project for students to utilize to create unique code. This one is done by Malik Vance and Ariel Lopez.
 
-## License
+## $\color{Mulberry}{License\ }$
 
 MIT © Malik Vance & Ariel Lopez
