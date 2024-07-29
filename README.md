@@ -1,6 +1,6 @@
 # $\color{Mulberry}{SIMPLE\ SHELL\ }$ 	
 	
-## $\color{Mulberry}{Features\ }$
+## $\color{Mulberry}{Features\}$
 	
 
 	
