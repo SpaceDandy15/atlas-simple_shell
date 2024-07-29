@@ -1,19 +1,25 @@
 # $\color{Mulberry}{SIMPLE\ SHELL\ }$ 	
-	
+
+
+
 ## $\color{Mulberry}{Features\ }$
 	
 
 	
 ## $\color{Mulberry}{Motivation\ }$
-	
+
+
 
 	
 ## $\color{Mulberry}{Code\ Language\ }$
-	
+
+
 Language C for the functions and ROFF for the man page.
 	
 ## $\color{Mulberry}{Framework\ }$
-	
+
+
+
 Works in Windows 11 Ubuntu 22.04, MAC, and Linux.
 	
 ## $\color{Mulberry}{Code\ Example\ }$
