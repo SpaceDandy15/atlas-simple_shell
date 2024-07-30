@@ -12,7 +12,7 @@
  **/
 int determineStatus(char **input) {
     if ((*input)[0] && strcmp(*input, "executable_file") == 0) {
-        return 2; // Indicate file exists but may not be executable
+        return 2; /** Indicate file exists but may not be executable*/
     }
     return 0;
 }
