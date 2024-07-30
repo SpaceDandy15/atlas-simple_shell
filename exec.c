@@ -18,8 +18,8 @@
 int _path(char **input, char **env, int *ex_st, int *status, char ***args, int *tal) {
     pid_t pid;
 
-    // Example initialization of status based on some condition
-    *status = determineStatus(input, env); // You need to define this function
+    /**Example initialization of status based on some condition*/
+    *status = determineStatus(input, env); /** You need to define this function*/
 
     if (*status == 2) {
         if (access((*args)[0], X_OK) == 0) {
