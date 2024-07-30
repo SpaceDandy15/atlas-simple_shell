@@ -23,5 +23,5 @@ void _custom_exec(const char *command, char *const args[], int *exit_status);
 void print_str(const char *str);
 void print_int(int num);
 void perror_custom(const char *message, const char *filename);
-
+int _path(char **input, char **env, int *ex_st, int *status, char ***args, int *tal);
 #endif
