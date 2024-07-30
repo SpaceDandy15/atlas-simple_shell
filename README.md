@@ -70,4 +70,4 @@ Atlas School (Holberton) has created this project for students to utilize to cre
 ## $\color{Mulberry}{License\ }$
 
 MIT © Malik Vance & Ariel Lopez
-![alt text](Simple-Shell.png)
+![alt text](Simple-Shell-1.png)
