@@ -13,12 +13,14 @@
 */
 void _my_exec(int status, char **args, int *ex_st, int *tal)
 {
-	pid_t pid; /**declaring here*/
+	pid_t pid; /**declaring pid here for future init*/
+	
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
 	{
 		if (access(args[0], X_OK) == 0) /** outer if block that checks if the file pointed to by args [0], 
 		access function makes this executable, X_OK tests for the files executability.*/
 		{
+			pid = fork();/**init pid to fork function */
 			if (pid == 0) /** if fork returns 0, it means we are in the child process. command is executed here*/
 			{
 				_custom_exec(args[0], args, NULL); /** executes the command located at args [0] with arguments*/
@@ -40,10 +42,10 @@ void _my_exec(int status, char **args, int *ex_st, int *tal)
 		else if (access(args [0], F_OK) == 0 && access(args[0], X_OK) != 0) /** if the file exists but is not executable**/
 		
 		{
-			print_str("sh: ");
+			print_str("sh: ");/**prints sh: */
 			print_int(*tal);
-			print_str(": ");
-			perror(args[0]);
+			print_str(": ");/** prints :  */
+			perror(args[0]);/**/
 			*ex_st = 126;
 		} /** sets the exit status to  126 which is a permission issue.*/
 	}
@@ -74,10 +76,10 @@ void _custom_exec(const char *command, char *const args[], int *exit_status)
 		perror("Failed to fork");
 		exit(EXIT_FAILURE);
 	}
-	else /** parent process*/
+	else /** parent process waits for child*/
 	{
 		int status;
 		waitpid(pid, &status, 0);
-		*exit_status = WEXITSTATUS(status);
+		*exit_status = WEXITSTATUS(status);/**wait for child to terminate */
 	}
 }
