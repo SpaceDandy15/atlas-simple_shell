@@ -61,12 +61,9 @@ int _path(char **input, char **env, int *ex_st)
 
 void _custom_exec(const char *command, char *const args[], int *exit_status)
 {
-
-=======
 	int i; /** integer used as loop counter*/
 	char *temp, *left, *right; /** pointer used for string manipulation*/
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
->>>>>>> refs/remotes/origin/main
 	pid_t pid = fork();
 
 	for (i = 0; env[i] != NULL; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
@@ -111,7 +108,6 @@ void _custom_exec(const char *command, char *const args[], int *exit_status)
 		}
 		free(envcopy);
 	}
-<<<<<<< HEAD
 	else if (pid < 0) /**fork failed*/
 	{
 		perror("Failed to fork");
@@ -124,8 +120,7 @@ void _custom_exec(const char *command, char *const args[], int *exit_status)
 		*exit_status = WEXITSTATUS(status);/**wait for child to terminate */
 	}
 }
-=======
 	return (2); /** after processing all paths, the function frees memory alocated for envcopy and returns 2,
 	 indicating failure to find a valid executable path*/
 }
->>>>>>> refs/remotes/origin/main
+
