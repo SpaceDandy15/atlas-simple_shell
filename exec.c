@@ -13,6 +13,7 @@
 */
 void _my_exec(int status, char **args, int *ex_st, int *tal)
 {
+	pid_t pid; /**declaring here*/
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
 	{
 		if (access(args[0], X_OK) == 0) /** outer if block that checks if the file pointed to by args [0], 
