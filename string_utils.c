@@ -23,14 +23,14 @@ char *trtok(char *str, const char *delim) {
 
     token = buffer;
     while (*buffer && !strchr(delim, *buffer)) {
-        ++buffer;
+        buffer++;
     }
 
     new_token = malloc(strlen(token) + 1);
     strcpy(new_token, token);
 
     while (*buffer && !strchr(delim, *buffer)) {
-        ++buffer;
+        buffer++;
     }
 
     *buffer = '\0';
