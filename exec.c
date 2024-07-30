@@ -13,7 +13,7 @@
  *@ex_st: the exit status
  *Return: 0 if successful
 **/
-int _path(char **input, char **env, int *ex_st, int *status, char ***args, int *tal)
+int _path(char **input, char **env, int *ex_st)
 {
 	pid_t pid; /**declaring pid here for future init*/
 	
