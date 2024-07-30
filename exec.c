@@ -2,6 +2,9 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/types.h>
+#include <errno.h>
+#include <sys/wait.h>
+
 /**
  * _path - function that prints environment PATH
  *@env: environment
@@ -69,7 +72,7 @@ void _custom_exec(const char *command, char *const args[], int *exit_status)
         }
     } else if (pid > 0) { /** Parent process*/
         wait(NULL); /** Wait for the child process to finish*/
-        *exit_status = WEXITSTATUS(errno); // Set the exit status
+        *exit_status = WEXITSTATUS(errno); /**Set the exit status*/
     } else { /** Fork failed*/
         perror("Fork failed");
         exit(EXIT_FAILURE);
