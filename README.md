@@ -73,4 +73,4 @@ MIT © Malik Vance & Ariel Lopez
 
 ## $\color{Mulberry}{Flowchart\ }$
 
-![alt text](Simple-Shell-1.png)
+![alt text](Simple-Shell.png)
