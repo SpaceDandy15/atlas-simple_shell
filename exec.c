@@ -5,28 +5,32 @@
 #include <errno.h>
 #include <sys/wait.h>
 
-int determineStatus(char **input, char **env) {
-    if ((*input)[0] && strcmp((*input)[0], "executable_file") == 0) {
-        return 2; /** Indicate file exists but may not be executable*/
+/**
+ * determineStatus - Determines the status based on input
+ * @input: Tokenized input arguments
+ * Return: 2 if the first input argument is "executable_file", otherwise 0
+ **/
+int determineStatus(char **input) {
+    if ((*input)[0] && strcmp(*input, "executable_file") == 0) {
+        return 2; // Indicate file exists but may not be executable
     }
-    return 0; 
+    return 0;
 }
 
 /**
- * _path - function that handles path-related operations
+ * _path - Handles path-related operations
  * @input: Tokenized input arguments
- * @env: Environment variables
  * @ex_st: Exit status
- * @status: Status indicator (e.g., file exists but may not be executable)
+ * @status: Status indicator
  * @args: Command and its arguments
- * @tal: An integer value used for printing
+ * @tal: Integer value used for printing
  * Return: 0 if successful
  **/
-int _path(char **input, char **env, int *ex_st, int *status, char ***args, int *tal) {
+int _path(char **input, int *ex_st, int *status, char ***args, int *tal) {
     pid_t pid;
 
-    /**Example initialization of status based on some condition*/
-    *status = determineStatus(input, env); /** You need to define this function*/
+    // Initialize status based on some condition
+    *status = determineStatus(input);
 
     if (*status == 2) {
         if (access((*args)[0], X_OK) == 0) {
@@ -56,12 +60,12 @@ int _path(char **input, char **env, int *ex_st, int *status, char ***args, int *
 }
 
 /**
- * _custom_exec - custom execution function
+ * _custom_exec - Custom execution function
  * @command: The command to execute
  * @args: Arguments for the command
  * @exit_status: Pointer to store the exit status of the executed command
  * Return: void
- */
+ **/
 void _custom_exec(const char *command, char *const args[], int *exit_status) {
     pid_t pid = fork();
 
