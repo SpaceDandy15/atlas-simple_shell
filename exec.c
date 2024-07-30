@@ -5,6 +5,13 @@
 #include <errno.h>
 #include <sys/wait.h>
 
+int determineStatus(char **input, char **env) {
+    if ((*input)[0] && strcmp((*input)[0], "executable_file") == 0) {
+        return 2; /** Indicate file exists but may not be executable*/
+    }
+    return 0; 
+}
+
 /**
  * _path - function that handles path-related operations
  * @input: Tokenized input arguments
