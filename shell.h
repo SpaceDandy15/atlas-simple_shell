@@ -15,7 +15,6 @@ char *trtok(char *str, const char *delim);
 int _strcmp(const char *a, const char *b);
 char *pathstr(char *path);
 int prompt(void); /**prompt declaration*/
-char *_strdup(const char *s); /** declaration for path.c*/
 /**funciton declartions from exec.c*/
 void _my_exec(int status, char **args, int *ex_st, int *tal);
 void _custom_exec(const char *command, char *const args[], int *exit_status);

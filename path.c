@@ -17,30 +17,30 @@ int _path(char **input, char **env, int *ex_st)
 	char *temp, *left, *right; /** pointer used for string manipulation*/
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
 	
-	pid_t pid;
+	pid_t pid;/**getting data type ready for fork process**/
 
 	for (i = 0; env[i] != NULL; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
 	indicates the end of the environment variables array.*/
 	{
 		envcopy = strdup(env[i]);
-		if (!envcopy)
+		if (!envcopy)/**if not dup of char pointer**/
 		{
-			perror("malloc fail");
+			perror("malloc fail");/**mem allocation fail**/
 			return (2);
 		}
 
-		left = strtok(envcopy, "= \t");
+		left = strtok(envcopy, "= \t");/**parse =tab in string**/
 		temp = strdup(NULL, "=\t"); /** environment is duplicated using _stdup, the split into tokens based on spaces,
 		equals signs, and tabs. First token is stored in left and second token is in temp*/
 
 		if (strcmp(left, "PATH") == 0) /** checks if left token matches the string "PATH", if it does it will proceed to tokenized temp again, this time splitting
 		on colons, spaces, and tabs to get individual paths.*/
 		{
-			right = strtok(temp, ": \t");
+			right = strtok(temp, ": \t");/**parse : in string*/
 			while (right)
 			{
-				new = pathstr(right);
-				if (!new)
+				new = pathstr(right);/**char pointer equating to parsing*/
+				if (!new)/**if fails complete this condition*/
 				{
 					perror("memalloc failed");
 					free(envcopy);
@@ -49,20 +49,20 @@ int _path(char **input, char **env, int *ex_st)
 				if (access(new, X_OK) == 0)
 				{
 					pid = fork();
-					if (pid == 0)
+					if (pid == 0)/**child process*/
 					_custom_exec(new,input, NULL);
 
-					else if (pid > 0)
+					else if (pid > 0)/**parent process*/
 					{
 					wait (NULL);
 					*ex_st = 0;
 					}
-					else
+					else/**fork error*/
 					{
 						perror("fork");
 					}
-					free(new);
-					free(envcopy);
+					free(new);/**free right**/
+					free(envcopy);/**free left**/
 					return (0);
 				}
 				right = strtok(NULL, ": \t");
