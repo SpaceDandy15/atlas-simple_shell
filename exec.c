@@ -12,7 +12,6 @@
 **/
 int _path(char **input, char **env, int *ex_st)
 {
-<<<<<<< HEAD
 	pid_t pid; /**declaring pid here for future init*/
 	
 	if (status == 2) /** will indicate that the file exists but may not be executable.*/
