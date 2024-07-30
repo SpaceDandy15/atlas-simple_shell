@@ -16,21 +16,27 @@ int prompt(void)
 	char *token; /** moved declarations outside of loop*/
 	int i = 0;
 	int line_freed = 0; /**int to track if line has been freed*/
+	
 	while (1) /** starts an infinite loop which will run until broken out of*/
 	{
-		printf("Ghost> "); /** Displays prompt*/
+		if (isatty(STDIN_FILENO) == 1)/**checks if terminal */
+		{
+			printf("Ghost> "); /** Displays prompt if terminal*/
+		}
 		read = getline(&line, &len, stdin); /** reads a line from sta1ndard input (stdin). However, len not being defined will cause comp error*/
 
 		if (read == -1)
 		{
 			perror("Error reading line");
+			free(line);/**free memory */
 			break; /** checks if the get line call failed, prints an error message and breaks out of loop.*/
 		}
+
 		/** Parse the input into arguments*/
 		token = strtok(line, " \t\r\n\a");
 		while (token != NULL)
 		{
-			args[i++] = token;
+			args[i++] = strdup(token);
 			token = strtok(NULL, " \t\r\n\a"); /** parses the input line into tokens (arguments) and stores them in the args array. loop continues until there are no more tokens.*/
 		}
 		args[i] = NULL; /** Null terminate the arguments array*/
@@ -40,9 +46,10 @@ int prompt(void)
 
 		/**cleanup*/
 		if (!line_freed) /**chekc if line has not been freed before*/
-		{ free(line); /**frees the memory allocated to line by getline*/
-		line = NULL; /**reset line to Null - Ariel*/
-		line_freed = 1; /** mark line as freed*/
+		{ 
+			free(line); /**frees the memory allocated to line by getline*/
+			line = NULL; /**reset line to Null - Ariel*/
+			line_freed = 1; /** mark line as freed*/
 		}
 		for (i = 0; args[i]; i++) 
 		{
