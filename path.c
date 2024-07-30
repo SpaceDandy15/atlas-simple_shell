@@ -16,23 +16,36 @@ int _path(char **input, char **env, int *ex_st)
 	int i; /** integer used as loop counter*/
 	char *temp, *left, *right; /** pointer used for string manipulation*/
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
+	
 	pid_t pid;
 
 	for (i = 0; env[i] != NULL; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
 	indicates the end of the environment variables array.*/
 	{
-		envcopy = _strdup(env[i]);
+		envcopy = strdup(env[i]);
+		if (!envcopy)
+		{
+			perror("malloc fail");
+			return (2);
+		}
+
 		left = strtok(envcopy, "= \t");
-		temp = trtok(NULL, "=\t"); /** environment is duplicated using _stdup, the split into tokens based on spaces,
+		temp = strdup(NULL, "=\t"); /** environment is duplicated using _stdup, the split into tokens based on spaces,
 		equals signs, and tabs. First token is stored in left and second token is in temp*/
 
-		if (_strcmp(left, "PATH") == 0) /** checks if left token matches the string "PATH", if it does it will proceed to tokenized temp again, this time splitting
+		if (strcmp(left, "PATH") == 0) /** checks if left token matches the string "PATH", if it does it will proceed to tokenized temp again, this time splitting
 		on colons, spaces, and tabs to get individual paths.*/
 		{
 			right = strtok(temp, ": \t");
 			while (right)
 			{
 				new = pathstr(right);
+				if (!new)
+				{
+					perror("memalloc failed");
+					free(envcopy);
+					return (2);
+				}
 				if (access(new, X_OK) == 0)
 				{
 					pid = fork();
