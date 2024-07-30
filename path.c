@@ -15,7 +15,7 @@ int _path(char **input, char **env, int *ex_st)
 	int i; /** integer used as loop counter*/
 	char *temp, *left, *right; /** pointer used for string manipulation*/
 	char *new = NULL, *envcopy = NULL; /** temporary storage for manipulated paths , envcopy is a copy fo the current environment variable being processed.*/
-	pid_t pid = fork();
+	pid_t pid;
 
 	for (i = 0; env[i] != NULL; i++) /** loop iterates over each environment variable until it encounters a null terminator ('\0'),
 	indicates the end of the environment variables array.*/
@@ -32,7 +32,7 @@ int _path(char **input, char **env, int *ex_st)
 			while (right)
 			{
 				new = pathstr(right);
-
+				pid = fork();
 				if (access(new, X_OK) == 0)
 				{
 					if (pid == 0)
