@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-char *_strdup(const char *s) {
+char *_strdup(const char *s)/**don't think we need this file since we have getline - A */
+{
     return strdup(s);
 }
 
