@@ -29,7 +29,6 @@ int determineStatus(char **input) {
 int _path(char **input, int *ex_st, int *status, char ***args, int *tal) {
     pid_t pid;
 
-    // Initialize status based on some condition
     *status = determineStatus(input);
 
     if (*status == 2) {
