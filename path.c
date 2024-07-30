@@ -32,9 +32,9 @@ int _path(char **input, char **env, int *ex_st)
 			while (right)
 			{
 				new = pathstr(right);
-				pid = fork();
 				if (access(new, X_OK) == 0)
 				{
+					pid = fork();
 					if (pid == 0)
 					_custom_exec(new,input, NULL);
 
