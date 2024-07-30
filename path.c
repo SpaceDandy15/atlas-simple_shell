@@ -2,11 +2,12 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 /**
  * _path - function that prints environment PATH
  *@env: environment
  *@first: the first tokenized keyword (user inputted argument)
- *@input: the tokenized arguemnets
+ *@input: the tokenized arguements
  *@ex_st: the exit status
  *Return: 0 if successful
 **/
